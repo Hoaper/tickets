@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="465.0" style="-fx-background-color: #fceae1;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ticketon.ticketon.HelloController">
+   <children>
+      <Pane layoutX="-1.0" prefHeight="68.0" prefWidth="466.0" style="-fx-background-color: red;">
+         <children>
+            <ImageView fitHeight="29.0" fitWidth="34.0" layoutX="394.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" rotate="10.7">
+               <image>
+                  <Image url="@img/logo2.png" />
+               </image>
+            </ImageView>
+            <Text fill="#0b0a0a" layoutX="136.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TICKETON" wrappingWidth="194.93683624267578">
+               <font>
+                  <Font name="Cambria" size="40.0" />
+               </font>
+            </Text>
+            <Line endX="350.3999938964844" endY="7.62939453125E-6" layoutX="116.0" layoutY="68.0" startX="-116.00000762939453" startY="7.62939453125E-6" stroke="#cfcdcd" strokeWidth="5.0" />
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="419.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="34.0" layoutX="52.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" rotate="-30.5">
+               <image>
+                  <Image url="@img/logo2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="21.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" rotate="-30.5">
+               <image>
+                  <Image url="@img/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ScrollPane hbarPolicy="NEVER" layoutX="-1.0" layoutY="68.0" prefHeight="513.0" prefWidth="465.0" style="-fx-background-color: #fceae1;" vbarPolicy="ALWAYS">
+         <content>
+            <GridPane fx:id="grid">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
