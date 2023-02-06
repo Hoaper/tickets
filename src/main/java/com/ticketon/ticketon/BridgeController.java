@@ -7,7 +7,8 @@ public class BridgeController {
     private ItemController itemController;
     @FXML
     private HelloController helloController;
-
+    @FXML
+    private RoomController roomController;
     public void initialize() {
         System.out.println("HELLo");
     }
