@@ -52,7 +52,7 @@ public class ItemController {
                     }
                     RoomController roomController = loader.getController();
 //                    Нужно будет сюда передавать данные об наших местах (заняты ли и тд.)
-                    roomController.setData(this.film_id, this.tittle_name);
+                    roomController.setData(this.film_id, this.tittle_name, 100d);
 
                     Node node = (Node) mouseEvent.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
