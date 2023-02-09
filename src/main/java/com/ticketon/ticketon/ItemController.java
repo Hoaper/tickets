@@ -13,6 +13,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ItemController {
     @FXML
@@ -43,6 +45,17 @@ public class ItemController {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
+
+                    DBController db = new DBController();
+                    ResultSet res = null;
+                    Double cost = null;
+                    try {
+                        res = db.getMovieById(film_id);
+                        cost = res.getDouble("cost");
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("cinema-room.txt.fxml"));
                     Scene scene = null;
                     try {
@@ -51,8 +64,12 @@ public class ItemController {
                         throw new RuntimeException(e);
                     }
                     RoomController roomController = loader.getController();
-//                    Нужно будет сюда передавать данные об наших местах (заняты ли и тд.)
-                    roomController.setData(this.film_id, this.tittle_name, 100d);
+
+                    try {
+                        roomController.setData(this.film_id, this.tittle_name, cost);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
 
                     Node node = (Node) mouseEvent.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();

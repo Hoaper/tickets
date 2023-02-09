@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.lang.annotation.Target;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,14 +33,52 @@ public class RoomController {
     @FXML
     private Button btn_reserve;
     @FXML
+    private Pane sit1;
+    @FXML
+    private Pane sit2;
+    @FXML
+    private Pane sit3;
+    @FXML
+    private Pane sit4;
+    @FXML
+    private Pane sit5;
+    @FXML
+    private Pane sit6;
+    @FXML
+    private Pane sit7;
+    @FXML
+    private Pane sit8;
+    @FXML
+    private Pane sit9;
+    @FXML
+    private Pane sit10;
+    @FXML
+    private Pane sit11;
+    @FXML
+    private Pane sit12;
+
+    private Pane[] sitsList;
+    @FXML
     private Text cost;
     private List<String> reserved = new ArrayList<>();
-    public void setData(String f_id, String t, Double c) {
+
+    public void setData(String f_id, String t, Double c) throws SQLException {
         film_id = f_id;
         tittle.setText(t);
         cost.setText("Cost: $" + c);
         cst = c;
+        DBController db = new DBController();
+        ResultSet sits = db.getSits(film_id);
+        while (sits.next()) {
+            Pane sit = sitsList[sits.getInt("sit_id")-1];
+            Boolean disabled = sits.getBoolean("bought");
+            sit.setDisable(disabled);
+            if (disabled) {
+                sit.setStyle("-fx-background-color: #8c8c8c");
+            }
+        }
     }
+
     public void onSitClick(MouseEvent event) {
         if (event.getButton().equals(MouseButton.PRIMARY)) {
             Text sitText = null;
@@ -68,11 +108,39 @@ public class RoomController {
     }
 
     public void initialize() {
-
+        sitsList = new Pane[]{
+                sit1, sit2, sit3, sit4, sit5, sit6, sit7, sit8, sit9, sit10, sit11, sit12
+        };
         btn_reserve.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                DBController db = new DBController();
+                for(String sitId: reserved) {
+                    try {
+                        db.changeBought(true, film_id, sitId);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("cinema-room.txt.fxml"));
+                Node node = (Node) mouseEvent.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                Scene scene = null;
+                try {
+                    scene = new Scene(loader.load());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
 
+
+                RoomController controller = loader.getController();
+                try {
+                    controller.setData(film_id, tittle.getText(), cst);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+
+                stage.setScene(scene);
             }
         });
 

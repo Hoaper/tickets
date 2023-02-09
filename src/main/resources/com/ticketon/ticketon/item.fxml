@@ -9,8 +9,8 @@
 
 <AnchorPane prefHeight="176.0" prefWidth="490.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ticketon.ticketon.ItemController">
    <children>
-      <ImageView fx:id="image" fitHeight="146.0" fitWidth="122.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <Text fx:id="tittle" layoutX="165.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tittle 8" wrappingWidth="211.7445526123047">
+      <ImageView fx:id="image" fitHeight="146.0" fitWidth="102.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Text fx:id="tittle" layoutX="147.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tittle 8" wrappingWidth="211.7445526123047">
          <font>
             <Font name="Bookshelf Symbol 7" size="26.0" />
          </font>
@@ -20,7 +20,7 @@
             <Font name="Candara" size="15.0" />
          </font>
       </Text>
-      <Text fx:id="desc" layoutX="165.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc " wrappingWidth="221.8616943359375">
+      <Text fx:id="desc" layoutX="147.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc Desc " wrappingWidth="199.46173095703125">
          <font>
             <Font size="14.0" />
          </font>

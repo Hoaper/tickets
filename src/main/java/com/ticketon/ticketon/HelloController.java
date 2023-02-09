@@ -7,13 +7,10 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Objects;
 
 public class HelloController {
     @FXML
     private GridPane grid;
-
     public void initialize() throws IOException, SQLException {
 
         DBController db = new DBController();
@@ -27,7 +24,7 @@ public class HelloController {
             itemController.setData(
                     String.valueOf(movie.id),
                     movie.movieTittle,
-                    movie.movieRating + "/10",
+                    movie.movieRating + " / 10",
                     movie.movieDescription,
                     movie.moviePath
             );
