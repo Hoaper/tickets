@@ -44,7 +44,6 @@ public class DBController {
         Statement state = conn.createStatement();
         return state.executeQuery("SELECT * FROM public.sits WHERE film_id=" + film_id);
     }
-
     public void changeBought(boolean status, String filmId, String sitId) throws SQLException {
         Statement state = conn.createStatement();
         state.executeUpdate(
